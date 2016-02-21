@@ -65,7 +65,7 @@ def move():
 		
 	# critical situation
 	"""
-    return {
+	return {
         'move': 'north',
         'taunt': 'battlesnake-python!'
     }
