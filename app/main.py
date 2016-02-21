@@ -35,7 +35,7 @@ def start():
 def move():
 	
 	# getting data values
-    data = bottle.request.json
+	data = bottle.request.json
 	"""
 	height = data.get('height')
 	width = data.get('width')
