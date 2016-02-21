@@ -28,22 +28,62 @@ def start():
     # TODO: Do things with data
 
     return {
-        'taunt': 'battlesnake-python!'
+        'taunt': 'LETS GET IT ON'
     }
 
 
 @bottle.post('/move')
 def move():
+
+	# getting data values
     data = bottle.request.json
+	height = data.get('height')
+	width = data.get('width')
+	snake = []
+	lastMove = ""
+	
+	# getting own snake
+	for tempSnake in data.get('snakes'):
+		if tempSnake.get('id') == 'f795c973-42a3-400e-aadd-4f7bc540c24b':
+			snake = tempSnake
 
-    # TODO: Do things with data
-
+	# determining snakes position
+	coords = snake.get('coords')
+	head = coords[0]
+	neck = coords[1]
+	tail = coords[-1]
+			
+	# determining the previous move
+	if head[0] < neck[0]:
+		lastMove = 'west'
+	if head[0] > neck[0]:
+		lastMove = 'east'
+	if head[1] < neck[1]:
+		lastMove = 'north'
+	if head[1] > neck[1]:
+		lastMove = 'south'
+		
+	# critical situation
+	
     return {
         'move': 'north',
         'taunt': 'battlesnake-python!'
     }
 
-
+def distance(a,b):
+	x = 0
+	y = 0
+	if a[0] < b[0]:
+		x = b[0] - a[0]
+	else:
+		x = a[0] - b[0]
+	if a[1] < b[1]:
+		y = b[1] - a[1]
+	else:
+		y = a[1] - b[1]
+	
+	return [x,y]
+	
 @bottle.post('/end')
 def end():
     data = bottle.request.json
