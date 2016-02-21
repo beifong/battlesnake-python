@@ -96,36 +96,77 @@ def move():
 				if coord == around[2]:
 					con3 == true
 	
-	if lastMove == 'north':
-		if con1 and con2:
-			nextMove = "noth"
-		if con1 and con3:
-			nextMove = "east"
-		if con2 and con3:
-			nextMove = "west"
-	elif lastMove == 'south':
-		if con1 and con2:
-			nextMove = "south"
-		if con1 and con3:
-			nextMove = "east"
-		if con2 and con3:
-			nextMove = "west"
-	elif lastMove == 'east':
-		if con1 and con2:
-			nextMove = "east"
-		if con1 and con3:
-			nextMove = "south"
-		if con2 and con3:
-			nextMove = "north"
-	elif lastMove == 'west':
-		if con1 and con2:
-			nextMove = "west"
-		if con1 and con3:
-			nextMove = "south"
-		if con2 and con3:
-			nextMove = "north"
+	if (con1 and con2) or (con1 and con3) or (con2 and con3):
+		if lastMove == 'north':
+			if con1 and con2:
+				nextMove = "noth"
+			elif con1 and con3:
+				nextMove = "east"
+			elif con2 and con3:
+				nextMove = "west"
+		elif lastMove == 'south':
+			elif con1 and con2:
+				nextMove = "south"
+			elif con1 and con3:
+				nextMove = "east"
+			elif con2 and con3:
+				nextMove = "west"
+		elif lastMove == 'east':
+			elif con1 and con2:
+				nextMove = "east"
+			elif con1 and con3:
+				nextMove = "south"
+			elif con2 and con3:
+				nextMove = "north"
+		elif lastMove == 'west':
+			elif con1 and con2:
+				nextMove = "west"
+			elif con1 and con3:
+				nextMove = "south"
+			elif con2 and con3:
+				nextMove = "north"
+	elif head[0] == 0:
+		if lastMove == 'west':
+			if head[1] == 0:
+				nextMove = 'south'
+			else:
+				nextMove = 'north'
+		if lastMove == 'north' and head[1] == 0:
+			nextMove = 'east'
+		if lastMove == 'south' and head[1] == height-1:
+			nextMove = 'east'
+	elif head[0] == width-1:
+		if lastMove == 'east':
+			if head[1] == height-1:
+				nextMove = 'west'
+			else: 
+				nextMove = 'south'
+		if lastMove == 'north' and head[1] == 0:
+			nextMove = 'west'
+		if lastMove == 'south' and head[1] == height-1:
+			nextMove = 'west'
+	elif head[1] == 0:
+		if lastMove == 'north':
+			if head[0] == width-1:
+				nextMove = 'west'
+			else:
+				nextMove = 'east'
+		if lastMove == 'east' and head[0]==width-1:
+			nextMove = 'south'
+		if lastMove == 'west' and head[0] == 0:
+			lastMove == 'south'
+	elif head[1] == height-1:
+		if lastMove == 'south':
+			if head[0] == 0:
+				nextMove = 'east'
+			else:
+				nextMove = 'west'
+		if lastMove == 'east' and head[0]==width-1:
+			nextMove = 'north'
+		if lastMove == 'west' and head[0] == 0:
+			lastMove == 'north'
 	else:
-		nextMlastMove = lastMove 
+		nextMove = lastMove 
 	
 	return {
 		'move': 'north',
