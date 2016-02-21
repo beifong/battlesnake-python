@@ -16,7 +16,6 @@ def index():
 
     return {
         'color': '#007419',
-		'name': 'IS THIS WORKING????!!!?',
         'head': head_url
     }
 
@@ -70,20 +69,7 @@ def move():
         'taunt': 'battlesnake-python!'
     }
 
-def distance(a,b):
-	x = 0
-	y = 0
-	if a[0] < b[0]:
-		x = b[0] - a[0]
-	else:
-		x = a[0] - b[0]
-	if a[1] < b[1]:
-		y = b[1] - a[1]
-	else:
-		y = a[1] - b[1]
-	
-	return [x,y]
-	
+
 @bottle.post('/end')
 def end():
     data = bottle.request.json
