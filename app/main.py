@@ -36,7 +36,6 @@ def move():
 	
 	# getting data values
 	data = bottle.request.json
-	"""
 	height = data.get('height')
 	width = data.get('width')
 	snake = []
@@ -64,7 +63,6 @@ def move():
 		lastMove = 'south'
 		
 	# critical situation
-	"""
 	return {
 		'move': 'north',
 		'taunt': 'battlesnake-python!'
