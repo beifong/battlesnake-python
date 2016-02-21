@@ -105,21 +105,21 @@ def move():
 			elif con2 and con3:
 				nextMove = "west"
 		elif lastMove == 'south':
-			elif con1 and con2:
+			if con1 and con2:
 				nextMove = "south"
 			elif con1 and con3:
 				nextMove = "east"
 			elif con2 and con3:
 				nextMove = "west"
 		elif lastMove == 'east':
-			elif con1 and con2:
+			if con1 and con2:
 				nextMove = "east"
 			elif con1 and con3:
 				nextMove = "south"
 			elif con2 and con3:
 				nextMove = "north"
 		elif lastMove == 'west':
-			elif con1 and con2:
+			if con1 and con2:
 				nextMove = "west"
 			elif con1 and con3:
 				nextMove = "south"
