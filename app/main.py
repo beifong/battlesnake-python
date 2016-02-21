@@ -66,9 +66,9 @@ def move():
 	# critical situation
 	"""
 	return {
-        'move': 'north',
-        'taunt': 'battlesnake-python!'
-    }
+		'move': 'north',
+		'taunt': 'battlesnake-python!'
+		}
 
 
 @bottle.post('/end')
