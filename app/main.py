@@ -40,6 +40,7 @@ def move():
 	width = data.get('width')
 	snake = []
 	lastMove = ""
+	nextMove = ""
 	
 	# getting own snake
 	for tempSnake in data.get('snakes'):
@@ -51,6 +52,7 @@ def move():
 	head = coords[0]
 	neck = coords[1]
 	tail = coords[-1]
+	around = [[],[],[]]
 			
 	# determining the previous move
 	if head[0] < neck[0]:
@@ -62,7 +64,69 @@ def move():
 	if head[1] > neck[1]:
 		lastMove = 'south'
 		
-	# critical situation
+	# critical situation setup
+	if lastMove == 'north':
+		around[0] = [head[0]-1,head[1]]
+		around[1] = [head[0]+1,head[1]]
+		around[2] = [head[0],head[1]-1]
+	elif lastMove == 'south':
+		around[0] = [head[0]-1,head[1]]
+		around[1] = [head[0]+1,head[1]]
+		around[2] = [head[0],head[1]+1]
+	elif lastMove == 'east':
+		around[0] = [head[0],head[1]-1]
+		around[1] = [head[0],head[1]+1]
+		around[2] = [head[0]+1,head[1]]
+	elif lastMove == 'west':
+		around[0] = [head[0],head[1]-1]
+		around[1] = [head[0],head[1]+1]
+		around[2] = [head[0]-1,head[1]]
+	
+	#critical situation test
+	con1 = fasle
+	con2 = fasle
+	con3 = false
+	for someSnake in data.get('snakes'):
+		if someSnake != snake:
+			for coord in someSnake:
+				if coord == around[0]:
+					con1 = true
+				if coord == around[1]:
+					con2 = true
+				if coord == around[2]:
+					con3 == true
+	
+	if lastMove == 'north'
+		if con1 and con2:
+			nextMove = "noth"
+		if con1 and con3:
+			nextMove = "east"
+		if con2 and con3:
+			nextMove = "west"
+	elif lastMove == 'south'
+		if con1 and con2:
+			nextMove = "south"
+		if con1 and con3:
+			nextMove = "east"
+		if con2 and con3:
+			nextMove = "west"
+	elif lastMove == 'east'
+		if con1 and con2:
+			nextMove = "east"
+		if con1 and con3:
+			nextMove = "south"
+		if con2 and con3:
+			nextMove = "north"
+	elif lastMove == 'west'
+		if con1 and con2:
+			nextMove = "west"
+		if con1 and con3:
+			nextMove = "south"
+		if con2 and con3:
+			nextMove = "north"
+	else:
+		nextMlastMove = lastMove 
+	
 	return {
 		'move': 'north',
 		'taunt': 'battlesnake-python!'
