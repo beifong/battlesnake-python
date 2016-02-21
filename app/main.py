@@ -83,8 +83,8 @@ def move():
 		around[2] = [head[0]-1,head[1]]
 	
 	#critical situation test
-	con1 = fasle
-	con2 = fasle
+	con1 = false
+	con2 = false
 	con3 = false
 	for someSnake in data.get('snakes'):
 		if someSnake != snake:
