@@ -96,28 +96,28 @@ def move():
 				if coord == around[2]:
 					con3 == true
 	
-	if lastMove == 'north'
+	if lastMove == 'north':
 		if con1 and con2:
 			nextMove = "noth"
 		if con1 and con3:
 			nextMove = "east"
 		if con2 and con3:
 			nextMove = "west"
-	elif lastMove == 'south'
+	elif lastMove == 'south':
 		if con1 and con2:
 			nextMove = "south"
 		if con1 and con3:
 			nextMove = "east"
 		if con2 and con3:
 			nextMove = "west"
-	elif lastMove == 'east'
+	elif lastMove == 'east':
 		if con1 and con2:
 			nextMove = "east"
 		if con1 and con3:
 			nextMove = "south"
 		if con2 and con3:
 			nextMove = "north"
-	elif lastMove == 'west'
+	elif lastMove == 'west':
 		if con1 and con2:
 			nextMove = "west"
 		if con1 and con3:
