@@ -83,18 +83,18 @@ def move():
 		around[2] = [head[0]-1,head[1]]
 	
 	#critical situation test
-	con1 = false
-	con2 = false
-	con3 = false
+	con1 = False
+	con2 = False
+	con3 = False
 	for someSnake in data.get('snakes'):
 		if someSnake != snake:
 			for coord in someSnake:
 				if coord == around[0]:
-					con1 = true
+					con1 = True
 				if coord == around[1]:
-					con2 = true
+					con2 = True
 				if coord == around[2]:
-					con3 == true
+					con3 == True
 	
 	if (con1 and con2) or (con1 and con3) or (con2 and con3):
 		if lastMove == 'north':
