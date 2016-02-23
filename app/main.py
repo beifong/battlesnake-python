@@ -94,7 +94,7 @@ def move():
 				if coord == around[1]:
 					con2 = True
 				if coord == around[2]:
-					con3 == True
+					con3 = True
 	
 	if (con1 and con2) or (con1 and con3) or (con2 and con3):
 		if lastMove == 'north':
@@ -154,7 +154,7 @@ def move():
 		if lastMove == 'east' and head[0]==width-1:
 			nextMove = 'south'
 		if lastMove == 'west' and head[0] == 0:
-			lastMove == 'south'
+			lastMove = 'south'
 	elif head[1] == height-1:
 		if lastMove == 'south':
 			if head[0] == 0:
@@ -164,7 +164,7 @@ def move():
 		if lastMove == 'east' and head[0]==width-1:
 			nextMove = 'north'
 		if lastMove == 'west' and head[0] == 0:
-			lastMove == 'north'
+			lastMove = 'north'
 	else:
 		nextMove = lastMove 
 	
