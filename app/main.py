@@ -105,21 +105,16 @@ def move():
 	foodNext1 = False
 	foodNext2 = False
 	foodNext3 = False
-	for food in data.get('food'):
-		for coord in food:
-			print(coord)
-			print(coord == around[0])
-			print(coord == around[1])
-			print(coord == around[2])
-			if coord == around[0]:
-				print("FOUND FOOD ONE 1 !!!!!!")
-				foodNext1 = True
-			if coord == around[1]:
-				print("FOUND FOOD TWO 2 !!!!!!")
-				foodNext2 = True
-			if coord == around[2]:
-				print("FOUND FOOD THREE 3 !!!!!!")
-				foodNext3 = True
+	for coord in data.get('food'):
+		if coord == around[0]:
+			print("FOUND FOOD ONE 1 !!!!!!")
+			foodNext1 = True
+		if coord == around[1]:
+			print("FOUND FOOD TWO 2 !!!!!!")
+			foodNext2 = True
+		if coord == around[2]:
+			print("FOUND FOOD THREE 3 !!!!!!")
+			foodNext3 = True
 		
 	
 	# the if statement hell that os cheching all possible conditions
