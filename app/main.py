@@ -151,7 +151,7 @@ def move():
 		if lastMove == 'west':
 			if foodNext3:
 				nextMove = 'west'
-			elif head[1] == 1:
+			elif head[1] <= 1:
 				nextMove = 'south'
 			else:
 				nextMove = 'north'
@@ -163,12 +163,12 @@ def move():
 			else:
 				nextMove = 'north'
 		if lastMove == 'north':
-			if head[1] == 1:
+			if head[1] <= 1:
 				nextMove = 'east'
 			elif foodNext1:
 				nextMove = 'west'
 		if lastMove == 'south':
-			if head[1] == height-2:
+			if head[1] >= height-2:
 				nextMove = 'east'
 			elif foodNext1:
 				nextMove = 'west'
@@ -176,8 +176,8 @@ def move():
 		if lastMove == 'east':
 			if foodNext3:
 				nextMove = 'east'
-			elif head[1] == height-2:
-				nextMove = 'west'
+			elif head[1] >= height-2:
+				nextMove = 'north'
 			else: 
 				nextMove = 'south'
 		if lastMove == 'west':
@@ -188,12 +188,12 @@ def move():
 			else:
 				nextMove = 'south'
 		if lastMove == 'north':
-			if head[1] == 1:
+			if head[1] <= 1:
 				nextMove = 'west'
 			elif foodNext2:
 				nextMove = 'east'
 		if lastMove == 'south':
-			if head[1] == height-2:
+			if head[1] >= height-2:
 				nextMove = 'west'
 			elif foodNext2:
 				nextMove = 'east'
@@ -201,7 +201,7 @@ def move():
 		if lastMove == 'north':
 			if foodNext3:
 				nextMove = 'north'
-			elif head[0] == width-2:
+			elif head[0] >= width-2:
 				nextMove = 'west'
 			else:
 				nextMove = 'east'
@@ -213,20 +213,20 @@ def move():
 			else:
 				nextMove = 'east'
 		if lastMove == 'east':
-			if head[0]==width-2:
+			if head[0]>=width-2:
 				nextMove = 'south'
 			elif foodNext1:
 				nextMove = 'north'
 		if lastMove == 'west':
-			if head[0] == 1:
-				lastMove = 'south'
+			if head[0] <= 1:
+				nextMove = 'south'
 			elif foodNext1:
 				nextMove = 'north'
 	elif head[1] == height-2:
 		if lastMove == 'south':
 			if foodNext3:
 				nextMove = 'south'
-			elif head[0] == 1:
+			elif head[0] <= 1:
 				nextMove = 'east'
 			else:
 				nextMove = 'west'
@@ -238,13 +238,13 @@ def move():
 			else:
 				nextMove = 'west'
 		if lastMove == 'east':
-			if head[0]==width-2:
+			if head[0] >= width-2:
 				nextMove = 'north'
 			elif foodNext2:
 				nextMove = 'south'
 		if lastMove == 'west':
-			if head[0] == 1:
-				lastMove = 'north'
+			if head[0] <= 1:
+				nextMove = 'north'
 			elif foodNext2:
 				nextMove = 'south'
 	elif head[0] == 0:
