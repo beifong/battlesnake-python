@@ -51,8 +51,8 @@ def move():
 	coords = snake.get('coords')
 	head = coords[0]
 	neck = coords[1]
-	tail = coords[-1]
-	around = [[],[],[]]
+	#tail = coords[-1]
+	around = [[0,0],[0,0],[0,0]]
 			
 	# determining the previous move
 	if head[0] < neck[0]:
@@ -169,7 +169,7 @@ def move():
 		nextMove = lastMove 
 	
 	return {
-		'move': 'north',
+		'move': nextMove,
 		'taunt': 'battlesnake-python!'
 		}
 
