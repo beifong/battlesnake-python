@@ -70,18 +70,22 @@ def move():
 		around[0] = [head[0]-1,head[1]]
 		around[1] = [head[0]+1,head[1]]
 		around[2] = [head[0],head[1]-1]
+		print(around)
 	elif lastMove == 'south':
 		around[0] = [head[0]-1,head[1]]
 		around[1] = [head[0]+1,head[1]]
 		around[2] = [head[0],head[1]+1]
+		print(around)
 	elif lastMove == 'east':
 		around[0] = [head[0],head[1]-1]
 		around[1] = [head[0],head[1]+1]
 		around[2] = [head[0]+1,head[1]]
+		print(around)
 	elif lastMove == 'west':
 		around[0] = [head[0],head[1]-1]
 		around[1] = [head[0],head[1]+1]
 		around[2] = [head[0]-1,head[1]]
+		print(around)
 	
 	#critical situation test setup
 	con1 = False
