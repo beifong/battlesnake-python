@@ -155,6 +155,13 @@ def move():
 				nextMove = 'south'
 			else:
 				nextMove = 'north'
+		if lastMove == 'east':
+			if head[1] == 1:
+				nextMove = 'east'
+			elif head[1] == 0:
+				nextMove = 'south'
+			else:
+				nextMove = 'north'
 		if lastMove == 'north':
 			if foodNext1:
 				nextMove = 'west'
@@ -173,6 +180,13 @@ def move():
 				nextMove = 'west'
 			else: 
 				nextMove = 'south'
+		if lastMove == 'west':
+			if head[1] == height-2:
+				nextMove = 'west'
+			elif head[1] == height-1:
+				nextMove = 'north'
+			else:
+				nextMove = 'south'
 		if lastMove == 'north':
 			if foodNext2:
 				nextMove = 'east'
@@ -188,6 +202,13 @@ def move():
 			if foodNext3:
 				nextMove = 'north'
 			elif head[0] == width-2:
+				nextMove = 'west'
+			else:
+				nextMove = 'east'
+		if lastMove == 'south':
+			if head[0] == width-2":
+				nextMove = 'south'
+			elif head[0] == width-1:
 				nextMove = 'west'
 			else:
 				nextMove = 'east'
@@ -209,6 +230,13 @@ def move():
 				nextMove = 'east'
 			else:
 				nextMove = 'west'
+		if lastMove == 'north':
+			if head[0] == 1:
+				nextMove = 'north'
+			elif head[0] == 0:
+				nextMove = 'east'
+			else:
+				nextMove = 'west'
 		if lastMove == 'east':
 			if foodNext2:
 				nextMove = 'south'
@@ -219,6 +247,38 @@ def move():
 				nextMove = 'south'
 			elif head[0] == 1:
 				lastMove = 'north'
+	elif head[0] == 0:
+ 		if lastMove == 'west':
+ 			if head[1] == 0:
+ 				nextMove = 'south'
+ 			else:
+ 				nextMove = 'north'
+ 		else:
+			nextMove = 'east'
+ 	elif head[0] == width-1:
+ 		if lastMove == 'east':
+ 			if head[1] == height-1:
+ 				nextMove = 'north'
+ 			else: 
+ 				nextMove = 'south'
+ 		else:
+			nextMove = 'west'
+ 	elif head[1] == 0:
+ 		if lastMove == 'north':
+ 			if head[0] == width-1:
+ 				nextMove = 'west'
+ 			else:
+ 				nextMove = 'east'
+ 		else:
+			nextMove = 'south'
+ 	elif head[1] == height-1:
+ 		if lastMove == 'south':
+ 			if head[0] == 0:
+ 				nextMove = 'east'
+ 			else:
+ 				nextMove = 'west'
+ 		else:
+			nextMove = 'north'
 	else:
 		nextMove = lastMove 
 	
