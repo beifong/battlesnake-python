@@ -206,7 +206,7 @@ def move():
 			else:
 				nextMove = 'east'
 		if lastMove == 'south':
-			if head[0] == width-2":
+			if head[0] == width-2:
 				nextMove = 'south'
 			elif head[0] == width-1:
 				nextMove = 'west'
