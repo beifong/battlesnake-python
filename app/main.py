@@ -58,11 +58,11 @@ def move():
 	# determining the previous move
 	if head[0] < neck[0]:
 		lastMove = 'west'
-	if head[0] > neck[0]:
+	elif head[0] > neck[0]:
 		lastMove = 'east'
-	if head[1] < neck[1]:
+	elif head[1] < neck[1]:
 		lastMove = 'north'
-	if head[1] > neck[1]:
+	elif head[1] > neck[1]:
 		lastMove = 'south'
 		
 	# ous snake surrounding
