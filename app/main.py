@@ -163,15 +163,15 @@ def move():
 			else:
 				nextMove = 'north'
 		if lastMove == 'north':
-			if foodNext1:
-				nextMove = 'west'
-			elif head[1] == 1:
+			if head[1] == 1:
 				nextMove = 'east'
+			elif foodNext1:
+				nextMove = 'west'
 		if lastMove == 'south':
-			if foodNext1:
-				nextMove = 'west'
-			elif head[1] == height-2:
+			if head[1] == height-2:
 				nextMove = 'east'
+			elif foodNext1:
+				nextMove = 'west'
 	elif head[0] == width-2:
 		if lastMove == 'east':
 			if foodNext3:
@@ -188,15 +188,15 @@ def move():
 			else:
 				nextMove = 'south'
 		if lastMove == 'north':
-			if foodNext2:
-				nextMove = 'east'
-			elif head[1] == 1:
+			if head[1] == 1:
 				nextMove = 'west'
+			elif foodNext2:
+				nextMove = 'east'
 		if lastMove == 'south':
-			if foodNext2:
-				nextMove = 'east'
-			elif head[1] == height-2:
+			if head[1] == height-2:
 				nextMove = 'west'
+			elif foodNext2:
+				nextMove = 'east'
 	elif head[1] == 1:
 		if lastMove == 'north':
 			if foodNext3:
@@ -213,15 +213,15 @@ def move():
 			else:
 				nextMove = 'east'
 		if lastMove == 'east':
-			if foodNext1:
-				nextMove = 'north'
-			elif head[0]==width-2:
+			if head[0]==width-2:
 				nextMove = 'south'
-		if lastMove == 'west':
-			if foodNext1:
+			elif foodNext1:
 				nextMove = 'north'
-			elif head[0] == 1:
+		if lastMove == 'west':
+			if head[0] == 1:
 				lastMove = 'south'
+			elif foodNext1:
+				nextMove = 'north'
 	elif head[1] == height-2:
 		if lastMove == 'south':
 			if foodNext3:
@@ -238,15 +238,15 @@ def move():
 			else:
 				nextMove = 'west'
 		if lastMove == 'east':
-			if foodNext2:
-				nextMove = 'south'
-			elif head[0]==width-2:
+			if head[0]==width-2:
 				nextMove = 'north'
-		if lastMove == 'west':
-			if foodNext2:
+			elif foodNext2:
 				nextMove = 'south'
-			elif head[0] == 1:
+		if lastMove == 'west':
+			if head[0] == 1:
 				lastMove = 'north'
+			elif foodNext2:
+				nextMove = 'south'
 	elif head[0] == 0:
  		if lastMove == 'west':
  			if head[1] == 0:
@@ -284,7 +284,7 @@ def move():
 	
 	return {
 		'move': nextMove,
-		'taunt': 'battlesnake-python!'
+		'taunt': 'Y\'all jesus aint real yo'
 		}
 
 
@@ -295,7 +295,7 @@ def end():
     # TODO: Do things with data
 
     return {
-        'taunt': 'battlesnake-python!'
+        'taunt': 'FUCK no'
     }
 
 
