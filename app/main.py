@@ -108,7 +108,9 @@ def move():
 	for food in data.get('food'):
 		for coord in food:
 			print(coord)
-			print(coord == around[0] + " " + coord == around[1] + " " + coord == around[2])
+			print(coord == around[0])
+			print(coord == around[1])
+			print(coord == around[2])
 			if coord == around[0]:
 				print("FOUND FOOD ONE 1 !!!!!!")
 				foodNext1 = True
