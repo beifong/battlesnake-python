@@ -66,6 +66,7 @@ def move():
 		lastMove = 'south'
 		
 	# ous snake surrounding
+	print(head)
 	if lastMove == 'north':
 		around[0] = [head[0]-1,head[1]]
 		around[1] = [head[0]+1,head[1]]
