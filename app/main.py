@@ -125,45 +125,45 @@ def move():
 				nextMove = "south"
 			elif con2 and con3:
 				nextMove = "north"
-	elif head[0] == 0:
+	elif head[0] == 1:
 		if lastMove == 'west':
-			if head[1] == 0:
+			if head[1] == 1:
 				nextMove = 'south'
 			else:
 				nextMove = 'north'
-		if lastMove == 'north' and head[1] == 0:
+		if lastMove == 'north' and head[1] == 1:
 			nextMove = 'east'
-		if lastMove == 'south' and head[1] == height-1:
+		if lastMove == 'south' and head[1] == height-2:
 			nextMove = 'east'
-	elif head[0] == width-1:
+	elif head[0] == width-2:
 		if lastMove == 'east':
-			if head[1] == height-1:
+			if head[1] == height-2:
 				nextMove = 'west'
 			else: 
 				nextMove = 'south'
-		if lastMove == 'north' and head[1] == 0:
+		if lastMove == 'north' and head[1] == 1:
 			nextMove = 'west'
-		if lastMove == 'south' and head[1] == height-1:
+		if lastMove == 'south' and head[1] == height-2:
 			nextMove = 'west'
-	elif head[1] == 0:
+	elif head[1] == 1:
 		if lastMove == 'north':
-			if head[0] == width-1:
+			if head[0] == width-2:
 				nextMove = 'west'
 			else:
 				nextMove = 'east'
-		if lastMove == 'east' and head[0]==width-1:
+		if lastMove == 'east' and head[0]==width-2:
 			nextMove = 'south'
-		if lastMove == 'west' and head[0] == 0:
+		if lastMove == 'west' and head[0] == 1:
 			lastMove = 'south'
-	elif head[1] == height-1:
+	elif head[1] == height-2:
 		if lastMove == 'south':
-			if head[0] == 0:
+			if head[0] == 1:
 				nextMove = 'east'
 			else:
 				nextMove = 'west'
-		if lastMove == 'east' and head[0]==width-1:
+		if lastMove == 'east' and head[0]==width-2:
 			nextMove = 'north'
-		if lastMove == 'west' and head[0] == 0:
+		if lastMove == 'west' and head[0] == 1:
 			lastMove = 'north'
 	else:
 		nextMove = lastMove 
