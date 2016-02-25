@@ -310,7 +310,7 @@ def move():
 		going = [head[0], head[1]+1]
 	if nextMove == 'west':
 		going = [head[0]-1, head[1]]
-	for snk in data.get('snake')
+	for snk in data.get('snake'):
 		for coord in snk:
 			if going == coord:
 				print('idk')
