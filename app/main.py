@@ -148,7 +148,7 @@ def move():
 	elif health < 25:
 		location = []
 		closest = height + width + 1
-		for food in data.get('food')
+		for food in data.get('food'):
 			distance = abs(head[0] - food[0]) + abs(head[1] - food[1])
 			if distance < closest:
 				closest = distance
