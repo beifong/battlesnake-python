@@ -153,13 +153,13 @@ def move():
 			if distance < closest:
 				closest = distance
 				location = food
-		if head[0] < food[0] and lastMove != 'east':
+		if head[0] < food[0] and lastMove != 'west':
 			nextMove = 'east'
-		if head[0] > food[0] and lastMove != 'west':
+		if head[0] > food[0] and lastMove != 'east':
 			nextMove = 'west'
-		if head[1] < food[1] and lastMove != 'south':
+		if head[1] < food[1] and lastMove != 'north':
 			nextMove = 'south'
-		if head[1] > food[1] and lastMove != 'north':
+		if head[1] > food[1] and lastMove != 'south':
 			nextMove = 'north'
 	elif head[0] == 1:
 		if lastMove == 'west':
