@@ -107,18 +107,16 @@ def move():
 	foodNext3 = False
 	for coord in data.get('food'):
 		if coord == around[0]:
-			print("FOUND FOOD ONE 1 !!!!!!")
 			foodNext1 = True
 		if coord == around[1]:
-			print("FOUND FOOD TWO 2 !!!!!!")
 			foodNext2 = True
 		if coord == around[2]:
-			print("FOUND FOOD THREE 3 !!!!!!")
 			foodNext3 = True
 		
 	
 	# the if statement hell that os cheching all possible conditions
 	if (con1 and con2) or (con1 and con3) or (con2 and con3):
+		print("	CRITICAL SITUATION HAPPENIN")
 		if lastMove == 'north':
 			if con1 and con2:
 				nextMove = "noth"
@@ -147,6 +145,22 @@ def move():
 				nextMove = "south"
 			elif con2 and con3:
 				nextMove = "north"
+	elif health < 25:
+		location = []
+		closest = height + width + 1
+		for food in data.get('food')
+			distance = abs(head[0] - food[0]) + abs(head[1] - food[1])
+			if distance < closest:
+				closest = distance
+				location = food
+		if head[0] < food[0] and lastMove != 'east':
+			nextMove = 'east'
+		if head[0] > food[0] and lastMove != 'west':
+			nextMove = 'west'
+		if head[1] < food[1] and lastMove != 'south':
+			nextMove = 'south'
+		if head[1] > food[1] and lastMove != 'north':
+			nextMove = 'north'
 	elif head[0] == 1:
 		if lastMove == 'west':
 			if foodNext3:
@@ -285,6 +299,43 @@ def move():
 			nextMove = 'north'
 	else:
 		nextMove = lastMove 
+		
+	# checking whether there is a snake in the location we want to go
+	going = []
+	if nextMove == 'north':
+		going = [head[0], head[1]-1]
+	if nextMove == 'east':
+		going = [head[0]+1, head[1]]
+	if nextMove == 'south':
+		going = [head[0], head[1]+1]
+	if nextMove == 'west':
+		going = [head[0]-1, head[1]]
+	for snk in data.get('snake')
+		for coord in snk:
+			if going == coord:
+				print('idk')
+	"""
+	elif con1 or con2 or con3:
+		a = around[2][0]
+		b = around[2][1]
+		c = around[1][0]
+		d = around[1][1]
+		if con1:
+			if a == -1 or a == width or b == -1 or b == height:
+				if lastMove == 'north':
+					nextMove = 'east'
+				if lastMove == 'east':
+					nextMove = 'south'
+				if lastMove == 'south':
+					nextMove = 'west'
+				if lastMove == 'west':
+					nextMove = 'north'
+			if a == -1 or a == width or d == -1 or d == height:
+				nextMove = lastMove
+			else:
+				nextMove = 
+	"""		
+	
 	
 	return {
 		'move': nextMove,
