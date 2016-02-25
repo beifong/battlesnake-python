@@ -145,7 +145,7 @@ def move():
 				nextMove = "south"
 			elif con2 and con3:
 				nextMove = "north"
-	elif health < 55:
+	elif health < 99:
 		location = []
 		closest = height + width + 1
 		for food in data.get('food'):
