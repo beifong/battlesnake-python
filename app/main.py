@@ -326,7 +326,7 @@ def move():
 	for someSnake in data.get('snakes'):
 		for coord in aroundInFront:
 			if someSnake[0] == coord:
-				inFrontCount++
+				inFrontCount += 1
 	if inFrontCount > 1:
 		con4 = True
 
