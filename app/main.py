@@ -318,10 +318,10 @@ def move():
 	inFront = going
 	con4 = False
 	aroundInFront = [[],[],[],[],]
-	aroundInFront[0] = [inFront[0]-1, intFront[1]]
-	aroundInFront[1] = [inFront[0], intFront[1]-1]
-	aroundInFront[2] = [inFront[0]+1, intFront[1]]
-	aroundInFront[3] = [inFront[0], intFront[1]+1]
+	aroundInFront[0] = [inFront[0]-1, inFront[1]]
+	aroundInFront[1] = [inFront[0], inFront[1]-1]
+	aroundInFront[2] = [inFront[0]+1, inFront[1]]
+	aroundInFront[3] = [inFront[0], inFront[1]+1]
 	inFrontCount = 0
 	for someSnake in data.get('snakes'):
 		for coord in aroundInFront:
