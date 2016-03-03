@@ -333,23 +333,23 @@ def move():
 		#go toward most of board if possible
 		if nextMove == 'north' or nextMove == 'south':
 			if head[0] <= width/2:
-				if !con2:
+				if not con2:
 					nextMove = 'east'
 				else:
 					nextMove = 'west'
 			else:
-				if !con1:
+				if not con1:
 					nextMove = 'west'
 				else:
 					nextMove = 'east'
 		if nextMove == 'east' or nextMove == 'west':
 			if head[1] <= height/2:
-				if !con2:
+				if not con2:
 					nextMove = 'south'
 				else: 
 					nextMove = 'north'
 			else:
-				if !con1:
+				if not con1:
 					nextMove = 'north'
 				else:
 					nextMove = 'south'
