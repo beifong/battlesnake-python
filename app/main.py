@@ -88,6 +88,8 @@ def move():
 		around[2] = [head[0]-1,head[1]]
 		print(around)
 	
+	
+	
 	#critical situation test setup
 	con1 = False
 	con2 = False
@@ -113,7 +115,21 @@ def move():
 		if coord == around[2]:
 			foodNext3 = True
 		
-	
+	# checking wether we're about to collide head on with some snake
+	inFront = around[2] 
+	aroundInFront = [[],[],[],[],]
+	aroundInFront[0] = [inFront[0]-1, intFront[1]]
+	aroundInFront[1] = [inFront[0], intFront[1]-1]
+	aroundInFront[2] = [inFront[0]+1, intFront[1]]
+	aroundInFront[3] = [inFront[0], intFront[1]+1]
+	inFrontCount = 0
+	for someSnake in data.get('snakes'):
+		for coord in aroundInFront:
+			if someSnake[0] == coord:
+				inFrontCount++
+	if inFrontCount > 1:
+		con3 = True
+
 	# the if statement hell that is cheching all possible conditions
 	if (con1 and con2) or (con1 and con3) or (con2 and con3):
 		print("	CRITICAL SITUATION HAPPENIN")
