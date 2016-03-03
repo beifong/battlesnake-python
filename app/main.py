@@ -114,21 +114,6 @@ def move():
 			foodNext2 = True
 		if coord == around[2]:
 			foodNext3 = True
-		
-	# checking wether we're about to collide head on with some snake
-	inFront = around[2] 
-	aroundInFront = [[],[],[],[],]
-	aroundInFront[0] = [inFront[0]-1, intFront[1]]
-	aroundInFront[1] = [inFront[0], intFront[1]-1]
-	aroundInFront[2] = [inFront[0]+1, intFront[1]]
-	aroundInFront[3] = [inFront[0], intFront[1]+1]
-	inFrontCount = 0
-	for someSnake in data.get('snakes'):
-		for coord in aroundInFront:
-			if someSnake[0] == coord:
-				inFrontCount++
-	if inFrontCount > 1:
-		con3 = True
 
 	# the if statement hell that is cheching all possible conditions
 	if (con1 and con2) or (con1 and con3) or (con2 and con3):
@@ -328,8 +313,24 @@ def move():
 		going = [head[0]-1, head[1]]
 	a = around[2][0]
 	b = around[2][1]
+	
+	# checking wether we're about to collide head on with some snake
+	inFront = going
+	con4 = False
+	aroundInFront = [[],[],[],[],]
+	aroundInFront[0] = [inFront[0]-1, intFront[1]]
+	aroundInFront[1] = [inFront[0], intFront[1]-1]
+	aroundInFront[2] = [inFront[0]+1, intFront[1]]
+	aroundInFront[3] = [inFront[0], intFront[1]+1]
+	inFrontCount = 0
+	for someSnake in data.get('snakes'):
+		for coord in aroundInFront:
+			if someSnake[0] == coord:
+				inFrontCount++
+	if inFrontCount > 1:
+		con4 = True
 
-	if going == around[0] and con1:
+	if (going == around[0] and con1) or con4:
 		if con3 or a == -1 or a == width or b == -1 or b == height:
 			if nextMove == 'north' or nextMove == 'south':
 				nextMove = 'east'
@@ -337,7 +338,7 @@ def move():
 				nextMove = 'south'
 		else:
 			nextMove = lastMove
-	elif going == around[1] and con2:
+	elif (going == around[1] and con2) or con4:
 		if con3 or a == -1 or a == width or b == -1 or b == height:
 			if nextMove == 'north' or nextMove == 'south':
 				nextMove = 'west'
@@ -345,7 +346,7 @@ def move():
 				nextMove = 'north'
 		else:
 			nextMove = lastMove
-	elif going == around[2] and con3:
+	elif (going == around[2] and con3) or con4:
 		#go toward most of board if possible
 		if nextMove == 'north' or nextMove == 'south':
 			if head[0] <= width/2:
@@ -369,6 +370,7 @@ def move():
 					nextMove = 'north'
 				else:
 					nextMove = 'south'
+
 	"""
 	elif con1 or con2 or con3:
 		a = around[2][0]
