@@ -331,6 +331,7 @@ def move():
 		con4 = True
 
 	if (going == around[0] and con1) or con4:
+		print("omg planned direction has snake in it!!! gotta change now:p")
 		if con3 or a == -1 or a == width or b == -1 or b == height:
 			if nextMove == 'north' or nextMove == 'south':
 				nextMove = 'east'
@@ -339,6 +340,7 @@ def move():
 		else:
 			nextMove = lastMove
 	elif (going == around[1] and con2) or con4:
+	print("omg planned direction has snake in it!!! gotta change now:p")	
 		if con3 or a == -1 or a == width or b == -1 or b == height:
 			if nextMove == 'north' or nextMove == 'south':
 				nextMove = 'west'
@@ -347,6 +349,7 @@ def move():
 		else:
 			nextMove = lastMove
 	elif (going == around[2] and con3) or con4:
+		print("omg planned direction has snake in it!!! gotta change now:p")
 		#go toward most of board if possible
 		if nextMove == 'north' or nextMove == 'south':
 			if head[0] <= width/2:
