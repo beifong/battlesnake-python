@@ -65,7 +65,7 @@ def move():
 	elif head[1] > neck[1]:
 		lastMove = 'south'
 		
-	# ous snake surrounding
+	# our snake surrounding
 	print(head)
 	if lastMove == 'north':
 		around[0] = [head[0]-1,head[1]]
@@ -114,12 +114,12 @@ def move():
 			foodNext3 = True
 		
 	
-	# the if statement hell that os cheching all possible conditions
+	# the if statement hell that is cheching all possible conditions
 	if (con1 and con2) or (con1 and con3) or (con2 and con3):
 		print("	CRITICAL SITUATION HAPPENIN")
 		if lastMove == 'north':
 			if con1 and con2:
-				nextMove = "noth"
+				nextMove = "north"
 			elif con1 and con3:
 				nextMove = "east"
 			elif con2 and con3:
@@ -145,7 +145,7 @@ def move():
 				nextMove = "south"
 			elif con2 and con3:
 				nextMove = "north"
-	elif health < 99:
+	elif health < 30:
 		location = []
 		closest = height + width + 1
 		for food in data.get('food'):
@@ -310,10 +310,49 @@ def move():
 		going = [head[0], head[1]+1]
 	if nextMove == 'west':
 		going = [head[0]-1, head[1]]
-	for snk in data.get('snakes'):
-		for coord in snk:
-			if going == coord:
-				print('idk')
+	a = around[2][0]
+	b = around[2][1]
+
+	if going == around[0] and con1:
+		if con3 or a == -1 or a == width or b == -1 or b == height:
+			if nextMove == 'north' or nextMove == 'south':
+				nextMove = 'east'
+			elif nextMove == 'west' or nextMove == 'east':
+				nextMove = 'south'
+		else:
+			nextMove = lastMove
+	elif going == around[1] and con2:
+		if con3 or a == -1 or a == width or b == -1 or b == height:
+			if nextMove == 'north' or nextMove == 'south':
+				nextMove = 'west'
+			elif nextMove == 'west' or nextMove == 'east':
+				nextMove = 'north'
+		else:
+			nextMove = lastMove
+	elif going == around[2] and con3:
+		#go toward most of board if possible
+		if nextMove == 'north' or nextMove == 'south':
+			if head[0] <= width/2:
+				if !con2:
+					nextMove = 'east'
+				else:
+					nextMove = 'west'
+			else:
+				if !con1:
+					nextMove = 'west'
+				else:
+					nextMove = 'east'
+		if nextMove == 'east' or nextMove == 'west':
+			if head[1] <= height/2:
+				if !con2:
+					nextMove = 'south'
+				else: 
+					nextMove = 'north'
+			else:
+				if !con1:
+					nextMove = 'north'
+				else:
+					nextMove = 'south'
 	"""
 	elif con1 or con2 or con3:
 		a = around[2][0]
