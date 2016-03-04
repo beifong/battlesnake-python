@@ -146,11 +146,13 @@ def move():
 				nextMove = "south"
 			elif con2 and con3:
 				nextMove = "north"
-	elif health < 100:
+	elif health < 30:
 		location = []
-		closest = height + width + 1
+		closest = math.sqrt((heigth**2) + (width**2))
 		for food in data.get('food'):
-			distance = abs(head[0] - food[0]) + abs(head[1] - food[1])
+			a = abs(head[0] - food[0]) 
+			b = abs(head[1] - food[1])
+			distance = math.sqrt((a**2) + (b**2))
 			if distance < closest:
 				closest = distance
 				location = food
