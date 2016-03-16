@@ -318,11 +318,11 @@ def move():
 	
 	# checking wether we're about to collide head on with some snake
 	con4 = False
-	aroundInFront = [[],[],[],[]]
-	aroundInFront[0] = [going[0]-1, going[1]]
-	aroundInFront[1] = [going[0], going[1]-1]
-	aroundInFront[2] = [going[0]+1, going[1]]
-	aroundInFront[3] = [going[0], going[1]+1]
+	aroundInFront = []
+	aroundInFront.append([going[0]-1, going[1]])
+	aroundInFront.append([going[0], going[1]-1])
+	aroundInFront.append([going[0]+1, going[1]])
+	aroundInFront.append([going[0], going[1]+1])
 	inFrontCount = 0
 	for someSnake in data.get('snakes'):
 		for coord in aroundInFront:
