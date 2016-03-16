@@ -317,13 +317,12 @@ def move():
 	b = around[2][1]
 	
 	# checking wether we're about to collide head on with some snake
-	inFront = going
 	con4 = False
-	aroundInFront = [[],[],[],[],]
-	aroundInFront[0] = [inFront[0]-1, inFront[1]]
-	aroundInFront[1] = [inFront[0], inFront[1]-1]
-	aroundInFront[2] = [inFront[0]+1, inFront[1]]
-	aroundInFront[3] = [inFront[0], inFront[1]+1]
+	aroundInFront = [[],[],[],[]]
+	aroundInFront[0] = [going[0]-1, going[1]]
+	aroundInFront[1] = [going[0], going[1]-1]
+	aroundInFront[2] = [going[0]+1, going[1]]
+	aroundInFront[3] = [going[0], going[1]+1]
 	inFrontCount = 0
 	for someSnake in data.get('snakes'):
 		for coord in aroundInFront:
@@ -375,33 +374,19 @@ def move():
 					nextMove = 'north'
 				else:
 					nextMove = 'south'
-
-	"""
-	elif con1 or con2 or con3:
-		a = around[2][0]
-		b = around[2][1]
-		c = around[1][0]
-		d = around[1][1]
-		if con1:
-			if a == -1 or a == width or b == -1 or b == height:
-				if lastMove == 'north':
-					nextMove = 'east'
-				if lastMove == 'east':
-					nextMove = 'south'
-				if lastMove == 'south':
-					nextMove = 'west'
-				if lastMove == 'west':
-					nextMove = 'north'
-			if a == -1 or a == width or d == -1 or d == height:
-				nextMove = lastMove
-			else:
-				nextMove = 
-	"""		
+					
+	# some custom taunts
+	turn = data.get('turn')
+	say = ''
+	if turn%2 == 0:
+		say = "hot hot tamale"
+	else:
+		say = "hot tamale"
 	
 	
 	return {
 		'move': nextMove,
-		'taunt': 'Y\'all jesus aint real yo'
+		'taunt': say
 		}
 
 
