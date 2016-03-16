@@ -315,7 +315,8 @@ def move():
 		going = [head[0]-1, head[1]]
 	a = around[2][0]
 	b = around[2][1]
-	
+	print("HERE GOES GOING:")
+	print(going)
 	# checking wether we're about to collide head on with some snake
 	con4 = False
 	aroundInFront = []
