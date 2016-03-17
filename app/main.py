@@ -235,7 +235,7 @@ def move():
 				nextMove = "east"
 		if lastMove == "east":
 			if head[0]>=width-2:
-				nextMove = "sout"'
+				nextMove = "south"
 			elif foodNext1:
 				nextMove = "north"
 		if lastMove == "west":
