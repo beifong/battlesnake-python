@@ -304,7 +304,7 @@ def move():
 		nextMove = lastMove 
 		
 	# checking whether there is a snake in the location we want to go
-	going = 
+	going = []
 	print("next move is:")
 	print(nextMove)
 	if nextMove == 'north':
