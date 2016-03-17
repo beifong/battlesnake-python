@@ -342,9 +342,9 @@ def move():
 	if con4:
 		if going == around[0]:
 			con1 = True
-		else if going == around[1]:
+		elif going == around[1]:
 			con2 = True
-		else if going == around[2]:
+		elif going == around[2]:
 			con3 = True
 
 	if (going == around[0] and con1):
