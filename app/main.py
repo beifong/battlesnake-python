@@ -304,14 +304,20 @@ def move():
 		nextMove = lastMove 
 		
 	# checking whether there is a snake in the location we want to go
-	going = []
+	going = 
+	print("next move is:")
+	print(nextMove)
 	if nextMove == 'north':
+		print("north is true!!!")
 		going = [head[0], head[1]-1]
 	if nextMove == 'east':
+		print("east is true!!!")
 		going = [head[0]+1, head[1]]
 	if nextMove == 'south':
+		print("south is true!!!")
 		going = [head[0], head[1]+1]
 	if nextMove == 'west':
+		print("west is true!!!")
 		going = [head[0]-1, head[1]]
 	a = around[2][0]
 	b = around[2][1]
@@ -379,7 +385,7 @@ def move():
 	# some custom taunts
 	turn = data.get('turn')
 	say = ''
-	if turn%2 == 0:
+	if turn % 2 == 0:
 		say = "hot hot tamale"
 	else:
 		say = "hot tamale"
