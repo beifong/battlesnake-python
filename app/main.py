@@ -34,7 +34,7 @@ def start():
 @bottle.post('/move')
 def move():
 	
-	# getting data values
+	# getting and initializing data values
 	data = bottle.request.json
 	height = data.get('height')
 	width = data.get('width')
@@ -57,32 +57,32 @@ def move():
 			
 	# determining the previous move
 	if head[0] < neck[0]:
-		lastMove = 'west'
+		lastMove = "west"
 	elif head[0] > neck[0]:
-		lastMove = 'east'
+		lastMove = "east"
 	elif head[1] < neck[1]:
-		lastMove = 'north'
+		lastMove = "north"
 	elif head[1] > neck[1]:
-		lastMove = 'south'
+		lastMove = "south"
 		
-	# our snake surrounding
+	# determining the coords for the three locations around snakes head
 	print(head)
-	if lastMove == 'north':
+	if lastMove == "north":
 		around[0] = [head[0]-1,head[1]]
 		around[1] = [head[0]+1,head[1]]
 		around[2] = [head[0],head[1]-1]
 		print(around)
-	elif lastMove == 'south':
+	elif lastMove == "south":
 		around[0] = [head[0]-1,head[1]]
 		around[1] = [head[0]+1,head[1]]
 		around[2] = [head[0],head[1]+1]
 		print(around)
-	elif lastMove == 'east':
+	elif lastMove == "east":
 		around[0] = [head[0],head[1]-1]
 		around[1] = [head[0],head[1]+1]
 		around[2] = [head[0]+1,head[1]]
 		print(around)
-	elif lastMove == 'west':
+	elif lastMove == "west":
 		around[0] = [head[0],head[1]-1]
 		around[1] = [head[0],head[1]+1]
 		around[2] = [head[0]-1,head[1]]
@@ -118,28 +118,28 @@ def move():
 	# the if statement hell that is cheching all possible conditions
 	if (con1 and con2) or (con1 and con3) or (con2 and con3):
 		print("	CRITICAL SITUATION HAPPENIN")
-		if lastMove == 'north':
+		if lastMove == "north":
 			if con1 and con2:
 				nextMove = "north"
 			elif con1 and con3:
 				nextMove = "east"
 			elif con2 and con3:
 				nextMove = "west"
-		elif lastMove == 'south':
+		elif lastMove == "south":
 			if con1 and con2:
 				nextMove = "south"
 			elif con1 and con3:
 				nextMove = "east"
 			elif con2 and con3:
 				nextMove = "west"
-		elif lastMove == 'east':
+		elif lastMove == "east":
 			if con1 and con2:
 				nextMove = "east"
 			elif con1 and con3:
 				nextMove = "south"
 			elif con2 and con3:
 				nextMove = "north"
-		elif lastMove == 'west':
+		elif lastMove == "west":
 			if con1 and con2:
 				nextMove = "west"
 			elif con1 and con3:
@@ -156,150 +156,150 @@ def move():
 			if distance < closest:
 				closest = distance
 				location = food
-		if head[0] < food[0] and lastMove != 'west':
-			nextMove = 'east'
-		if head[0] > food[0] and lastMove != 'east':
-			nextMove = 'west'
-		if head[1] < food[1] and lastMove != 'north':
-			nextMove = 'south'
-		if head[1] > food[1] and lastMove != 'south':
-			nextMove = 'north'
+		if head[0] < location[0] and lastMove != 'west':
+			nextMove = "east"
+		if head[0] > location[0] and lastMove != 'east':
+			nextMove = "west"
+		if head[1] < location[1] and lastMove != 'north':
+			nextMove = "south"
+		if head[1] > location[1] and lastMove != 'south':
+			nextMove = "north"
 	elif head[0] == 1:
-		if lastMove == 'west':
+		if lastMove == "west":
 			if foodNext3:
-				nextMove = 'west'
+				nextMove = "west"
 			elif head[1] <= 1:
-				nextMove = 'south'
+				nextMove = "south"
 			else:
-				nextMove = 'north'
-		if lastMove == 'east':
+				nextMove = "north"
+		if lastMove == "east":
 			if head[1] == 1:
-				nextMove = 'east'
+				nextMove = "east"
 			elif head[1] == 0:
-				nextMove = 'south'
+				nextMove = "south"
 			else:
-				nextMove = 'north'
-		if lastMove == 'north':
+				nextMove = "north"
+		if lastMove == "north":
 			if foodNext3:
-				nextMove = 'north'
+				nextMove = "north"
 			elif head[1] <= 1:
-				nextMove = 'east'
+				nextMove = "east"
 			elif foodNext1:
-				nextMove = 'west'
-		if lastMove == 'south':
+				nextMove = "west"
+		if lastMove == "south":
 			if head[1] >= height-2:
-				nextMove = 'east'
+				nextMove = "east"
 			elif foodNext1:
 				nextMove = 'west'
 	elif head[0] == width-2:
-		if lastMove == 'east':
+		if lastMove == "east":
 			if foodNext3:
-				nextMove = 'east'
+				nextMove = "east"
 			elif head[1] >= height-2:
-				nextMove = 'north'
+				nextMove = "north"
 			else: 
-				nextMove = 'south'
-		if lastMove == 'west':
+				nextMove = "south"
+		if lastMove == "west":
 			if head[1] == height-2:
-				nextMove = 'west'
+				nextMove = "west"
 			elif head[1] == height-1:
-				nextMove = 'north'
+				nextMove = "north"
 			else:
-				nextMove = 'south'
-		if lastMove == 'north':
+				nextMove = "south"
+		if lastMove == "north":
 			if head[1] <= 1:
-				nextMove = 'west'
+				nextMove = "west"
 			elif foodNext2:
-				nextMove = 'east'
-		if lastMove == 'south':
+				nextMove = "east"
+		if lastMove == "south":
 			if foodNext3:
-				nextMove = 'south'
+				nextMove = "south"
 			elif head[1] >= height-2:
-				nextMove = 'west'
+				nextMove = "west"
 			elif foodNext2:
-				nextMove = 'east'
+				nextMove = "east"
 	elif head[1] == 1:
-		if lastMove == 'north':
+		if lastMove == "north":
 			if foodNext3:
-				nextMove = 'north'
+				nextMove = "north"
 			elif head[0] >= width-2:
-				nextMove = 'west'
+				nextMove = "west"
 			else:
-				nextMove = 'east'
-		if lastMove == 'south':
+				nextMove = "east"
+		if lastMove == "south":
 			if head[0] == width-2:
-				nextMove = 'south'
+				nextMove = "south"
 			elif head[0] == width-1:
-				nextMove = 'west'
+				nextMove = "west"
 			else:
-				nextMove = 'east'
-		if lastMove == 'east':
+				nextMove = "east"
+		if lastMove == "east":
 			if head[0]>=width-2:
-				nextMove = 'south'
+				nextMove = "sout"'
 			elif foodNext1:
-				nextMove = 'north'
-		if lastMove == 'west':
+				nextMove = "north"
+		if lastMove == "west":
 			if head[0] <= 1:
-				nextMove = 'south'
+				nextMove = "south"
 			elif foodNext1:
-				nextMove = 'north'
+				nextMove = "north"
 	elif head[1] == height-2:
-		if lastMove == 'south':
+		if lastMove == "south":
 			if foodNext3:
-				nextMove = 'south'
+				nextMove = "south"
 			elif head[0] <= 1:
-				nextMove = 'east'
+				nextMove = "east"
 			else:
-				nextMove = 'west'
-		if lastMove == 'north':
+				nextMove = "west"
+		if lastMove == "north":
 			if head[0] == 1:
-				nextMove = 'north'
+				nextMove = "north"
 			elif head[0] == 0:
-				nextMove = 'east'
+				nextMove = "east"
 			else:
-				nextMove = 'west'
-		if lastMove == 'east':
+				nextMove = "west"
+		if lastMove == "east":
 			if head[0] >= width-2:
-				nextMove = 'north'
+				nextMove = "north"
 			elif foodNext2:
-				nextMove = 'south'
-		if lastMove == 'west':
+				nextMove = "south"
+		if lastMove == "west":
 			if head[0] <= 1:
-				nextMove = 'north'
+				nextMove = "north"
 			elif foodNext2:
-				nextMove = 'south'
+				nextMove = "south"
 	elif head[0] == 0:
- 		if lastMove == 'west':
+ 		if lastMove == "west":
  			if head[1] == 0:
- 				nextMove = 'south'
+ 				nextMove = "south"
  			else:
- 				nextMove = 'north'
+ 				nextMove = "north"
  		else:
-			nextMove = 'east'
+			nextMove = "east"
  	elif head[0] == width-1:
- 		if lastMove == 'east':
+ 		if lastMove == "east":
  			if head[1] == height-1:
- 				nextMove = 'north'
+ 				nextMove = "north"
  			else: 
- 				nextMove = 'south'
+ 				nextMove = "south"
  		else:
-			nextMove = 'west'
+			nextMove = "west"
  	elif head[1] == 0:
- 		if lastMove == 'north':
+ 		if lastMove == "north":
  			if head[0] == width-1:
- 				nextMove = 'west'
+ 				nextMove = "west"
  			else:
- 				nextMove = 'east'
+ 				nextMove = "east"
  		else:
-			nextMove = 'south'
+			nextMove = "south"
  	elif head[1] == height-1:
- 		if lastMove == 'south':
+ 		if lastMove == "south":
  			if head[0] == 0:
- 				nextMove = 'east'
+ 				nextMove = "east"
  			else:
- 				nextMove = 'west'
+ 				nextMove = "west"
  		else:
-			nextMove = 'north'
+			nextMove = "north"
 	else:
 		nextMove = lastMove 
 		
@@ -307,16 +307,18 @@ def move():
 	going = []
 	print("next move is:")
 	print(nextMove)
-	if nextMove == 'north':
+	print("the last move is:")
+	print(lastMove)
+	if nextMove == "north":
 		print("north is true!!!")
 		going = [head[0], head[1]-1]
-	if nextMove == 'east':
+	if nextMove == "east":
 		print("east is true!!!")
 		going = [head[0]+1, head[1]]
-	if nextMove == 'south':
+	if nextMove == "south":
 		print("south is true!!!")
 		going = [head[0], head[1]+1]
-	if nextMove == 'west':
+	if nextMove == "west":
 		print("west is true!!!")
 		going = [head[0]-1, head[1]]
 	a = around[2][0]
